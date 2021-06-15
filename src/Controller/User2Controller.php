@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User2;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -54,22 +55,32 @@ class User2Controller extends AbstractController
     }
 
     /**
-     * @Route("/register-submit", name="register_submit",  methods={"POST"})
+     * @Route("/register/submit", name="register_submit",  methods={"POST"})
      * @param $request
      */
-    public function createUser(string $firstname, string $lastname, string $pseudo, string $password, string $mail, string $status,  ValidatorInterface $validator) : Response
+    public function createUser(Request $request, ValidatorInterface $validator) : Response
+
     {   
         // you can fetch the EntityManager via $this->getDoctrine()
         // or you can add an argument to the action: createProduct(EntityManagerInterface $entityManager)
+        //public function createUser(string $firstname, string $lastname, string $pseudo, string $password, string $mail, string $status,  ValidatorInterface $validator) : Response
+
         $entityManager = $this->getDoctrine()->getManager();
 
         $user = new User();
-        $user->setFirstname($firstname);
+        $user->setFirstname($request->get('firstname'));
+        $user->setLastname($request->get('lastname'));
+        $user->setPseudo($request->get('pseudo'));
+        $user->setPassword($request->get('password'));
+        $user->setMail($request->get('mail'));
+        $user->setStatus($request->get('status'));
+
+        /*$user->setFirstname($firstname);
         $user->setPassword($lastname);
         $user->setPseudo($pseudo);
         $user->setPassword($password);
         $user->setMail($mail);
-        $user->setStatus($status);
+        $user->setStatus($status);*/
 
         
         $errors = $validator->validate($user);
