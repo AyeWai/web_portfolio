@@ -1,0 +1,168 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+<div class="container">
+		<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Navbar</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{path('who', {userIdentity: 'Napoléon' })}}">Qui suis-je?</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Dropdown
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li>
+									<a class="dropdown-item" href="{{path('scaffold',)}}">Scaffold</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">Inscription</a>
+								</li>
+								<li><hr class="dropdown-divider"></li>
+								<li>
+									<a class="dropdown-item" href="#">Something else here</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+						</li>
+					</ul>
+					<form class="d-flex">
+						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+						<button class="btn btn-outline-success" type="submit">Search</button>
+					</form>
+				</div>
+			</div>
+		</nav>
+		<main>
+			<div class="py-5 text-center mt-5">
+				<h2>Inscription</h2>
+				<p class="lead">L'inscription en tant qu'utilisateur est nécessaire pour pouvoir écrire dans le livre d'or et bénéficier des bonus liés aux dons.</p>
+			</div>
+
+			<div class="row g-3">
+				<div class="col-md-9 col-lg-12">
+					<h4 class="mb-3">Ajouter un compte</h4>
+					<form class="needs-validation" novalidate>
+						<div class="row g-3 mb-5">
+							<div class="col-sm-6">
+								<label for="firstName" class="form-label">Prénom</label>
+								<input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+								<div class="invalid-feedback">
+									Un prénom valide est requis.
+								</div>
+							</div>
+
+							<div class="col-sm-6">
+								<label for="lastName" class="form-label">Nom</label>
+								<input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+								<div class="invalid-feedback">
+									Un nom valide est requis.
+								</div>
+							</div>
+
+							<div class="col-12">
+								<label for="username" class="form-label">Pseudonyme</label>
+								<div class="input-group">
+									<span class="input-group-text">@</span>
+									<input type="text" class="form-control" id="username" placeholder="Pseudonyme" required>
+									<div class="invalid-feedback">
+										Un pseudonyme est requis.
+									</div>
+								</div>
+							</div>
+
+							<div class="col-12">
+								<label for="username" class="form-label">Mot de passe</label>
+								<div class="input-group">
+									<input type="text" class="form-control" id="password" placeholder="Votre mot de passe" required>
+									<div class="invalid-feedback">
+										Un mot de passe est requis.
+									</div>
+								</div>
+							</div>
+
+							<div class="col-12">
+								<label for="email" class="form-label">Email
+									<!-- <span class="text-muted">(Optional)</span> -->
+								</label>
+								<input type="email" class="form-control" id="email" placeholder="Adresse mail" oninput="form.email_confirm.pattern = escapeRegExp(this.value)" required>
+								<div class="invalid-feedback">
+									Entrez une adresse e-mail valide pour mail confirmation.
+								</div>
+							</div>
+
+							<div class="col-12">
+									<!-- <span class="text-muted">(Optional)</span> -->
+								</label>
+								<input type="email" class="form-control" id="email_confirm" placeholder="Confirmation de l'adresse mail" pattern=""  title="Fields must match" required>
+								<div class="invalid-feedback">
+									Entrez une adresse e-mail valide pour mail confirmation.
+								</div>
+							</div>
+
+							<div class="col-md-5">
+								<label for="country" class="form-label">Statut</label>
+								<select class="form-select" id="country" required>
+									<option>Recruteur</option>
+									<option>Particulier</option>
+									<option>Collaboration</option>
+									<option>Société</option>
+								</select>
+								<div class="invalid-feedback">
+									Sélectionnez un des statuts.
+								</div>
+							</div>
+						</div>
+
+
+						<div class="form-check mb-4">
+							<input type="checkbox" class="form-check-input" id="same-address">
+							<label class="form-check-label" for="same-address">J'ai lu et j'accepte les conditions générales d'utilisation et la politique d'utilisation des données. *</label>
+						</div>
+
+
+						<button class="w-100 btn btn-primary btn-lg" type="submit" href={{path('register_submit',)}}>Confirmer</button>
+					</form>
+
+						<hr class="my-4">
+				</div>
+			</div>
+			<div class="register-info">
+				<p>* Informations obligatoires</p>
+				<p>En tant que responsable de traitement, Webedia traite vos données personnelles sur le site jeuxvideo.com pour gérer votre abonnement à notre newsletter jeuxvideo.com. Vous disposez d’un droit d’accès, de rectification, d’effacement ou de portabilité de vos données personnelles. Vous pouvez vous opposer ou limiter certains traitements. Vous disposez également du droit de définir des directives relatives au sort de vos données après votre décès. Enfin, vous avez le droit d’introduire une réclamation auprès de la Commission nationale de l’informatique et des libertés. Pour en savoir plus sur la gestion de vos données et de vos droits par Webedia sur le site jeuxvideo.com, consultez notre Politique de protection des données.</p>
+			</div>
+
+
+		</main>
+
+		<footer class="my-5 pt-5 text-muted text-center text-small">
+			<p class="mb-1">&copy; 2020–2021 Chris SIMON</p>
+			<ul class="list-inline">
+				<li class="list-inline-item">
+					<a href="#">Privacy</a>
+				</li>
+				<li class="list-inline-item">
+					<a href="#">Terms</a>
+				</li>
+				<li class="list-inline-item">
+					<a href="#">Support</a>
+				</li>
+			</ul>
+		</footer>
+	</div>
+
+{% endblock %}

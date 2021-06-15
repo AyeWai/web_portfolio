@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Qui suis-je?{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Cette page est appelée grâce à la fonction who de {{ controller_name }}! ✅</h1>
+
+    <h2>{{msg_displayed}}<h2>
+
+    Je suis {{identity}}:
+    <p>Ceci est la page liée à l'onglet "Qui suis-je?" de la page d'accueil</p>
+</div>
+{% endblock %}
