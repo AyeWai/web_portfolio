@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User2;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -68,12 +69,25 @@ class User2Controller extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
 
         $user = new User();
-        $user->setFirstname($request->get('firstname'));
+
+        $form = $this->createFormBuilder($user)
+            ->add('firstname', TextType::class)
+            ->add('lastname', TextType::class)
+            ->add('pseudo', TextType::class)
+            ->add('password', PasswordType::class)
+            ->add('mail', EmailType::class)
+            ->add('status', TextType::class)
+
+
+            ->add('register_submit', SubmitType::class, ['label' => 'Créer Utilisateur'])
+            ->getForm();
+
+        /*$user->setFirstname($request->get('firstname'));
         $user->setLastname($request->get('lastname'));
         $user->setPseudo($request->get('pseudo'));
         $user->setPassword($request->get('password'));
         $user->setMail($request->get('mail'));
-        $user->setStatus($request->get('status'));
+        $user->setStatus($request->get('status'));*/
 
         /*$user->setFirstname($firstname);
         $user->setPassword($lastname);
