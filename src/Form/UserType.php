@@ -20,17 +20,46 @@ class UserType extends AbstractType
                 'class' => 'form-label',
                 'for' => 'FirstName,'
             ],
-            'label' => 'Firstname2',
+            'label' => 'Prénom',
             'attr' => [
                 'placeholder' => 'brrr',
             ]
 
         ])
-        ->add('lastname', TextType::class)
-        ->add('pseudo', TextType::class)
-        ->add('password', PasswordType::class)
-        ->add('mail', EmailType::class)
-        ->add('status', TextType::class)
+        ->add('lastname', TextType::class,[
+            'label_attr' =>[
+                'class' => 'form-label',
+                'for' => 'LasttName',
+            ],
+            'label' => 'Nom'])
+        ->add('pseudo', TextType::class,[
+            'label_attr' =>[
+                'class' => 'form-label',
+                'for' => 'Pseudo',
+            ],
+            'label' => 'Pseudo'])
+        ->add('password', PasswordType::class,[
+            'label_attr' =>[
+                'class' => 'form-label',
+                'for' => 'Password',
+            ],
+            'label' => 'Password'])
+        ->add('mail', EmailType::class,[
+            'label_attr' =>[
+                'class' => 'form-label',
+                'for' => 'Mail',
+            ],
+            'label' => 'Mail'])
+        ->add('status', TextType::class,[
+            'label_attr' =>[
+                'class' => 'form-label',
+                'for' => 'Status',
+                'class'=>'checkbbox-line',
+                'type'=>'checkbox'
+            ],
+            'label' => 'Status',
+            ]
+            )
         ;
     }
 
