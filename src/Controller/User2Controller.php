@@ -54,6 +54,30 @@ class User2Controller extends AbstractController
         }
     }
 
+    public function contact(Request $request): Response
+    {
+        //$defaultData = ['message' => 'Type your message here'];
+        //$form = $this->createFormBuilder($defaultData)
+        $form = $this->createFormBuilder()
+            ->add('firstname', TextType::class)
+            ->add('lastname', TextType::class)
+            ->add('pseudo', TextType::class)
+            ->add('password', PasswordType::class)
+            ->add('email', EmailType::class)
+            ->add('statut', TextareaType::class)
+            ->add('send', SubmitType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // data is an array with "name", "email", and "message" keys
+            $data = $form->getData();
+        }
+
+        // ... render the form
+    }
+
 
     
 }

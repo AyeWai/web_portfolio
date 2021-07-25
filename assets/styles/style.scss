@@ -1639,3 +1639,63 @@ section {
   font-size: 13px;
   color: #364146;
 }
+
+.mountain {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.mountain::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to top,#fff, transparent);
+  z-index: 10000;
+}
+
+.mountain img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.mountain img#man{
+  transform-origin: bottom;
+}
+
+.mountain h3{
+  text-align: center;
+}
+
+#text{
+  position : relative;
+  color: #fff;
+  font-size: 10vw;
+}
+
+.sec{
+  position: relative;
+  padding: 100px;
+}
+
+.sec h2{
+  font-size: 3.5em;
+  margin-bottom: 10px;
+  color: #20496a;
+}
+
+
+
+.sec p{
+  font-size: 1.2em;
+  color: #20496a;
+}

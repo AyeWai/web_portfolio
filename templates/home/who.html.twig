@@ -3,17 +3,81 @@
 {% block title %}Qui suis-je?{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Cette page est appelée grâce à la fonction who de {{ controller_name }}! ✅</h1>
+<div class="container">
+		<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Navbar</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="{{path('home',)}}">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{{path('who', {userIdentity: 'Chris' })}}">Qui suis-je?</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Dropdown
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li>
+									<a class="dropdown-item" href="{{path('scaffold',)}}">Action</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="{{path('register',)}}">Inscription</a>
+								</li>
+								<li><hr class="dropdown-divider"></li>
+								<li>
+									<a class="dropdown-item" href="{{path('register_submit',)}}">Formulaire Symfony Inscription</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+						</li>
+					</ul>
+					<!-- <form class="d-flex">
+						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+						<button class="btn btn-outline-success" type="submit">Search</button>
+					</form> -->
+				</div>
+			</div>
+		</nav>
+        <main>
+            <section>
+                <h2 class="py-5 text-center mt-5">{{msg_displayed}}<h2>
+                <img src="{{asset('build/img/8bitpix.png')}}" id="profil_pic">
 
-    <h2>{{msg_displayed}}<h2>
+                <p class="py-5 text-center mt-5">Je me présente, {{identity}}, enchanté.</p>
+                <p> Il y a maintenant deux années j’ai réussi avec brio un master dans le domaine scientifique en bioinformatique. Avant ces deux années, je faisais de la biologie pure. Je n’ai jamais eu des facilités dans la logique mathématique, et les sujets dont je qualifierai l’expression d’abstraite. 
+                C’est pour cela que quand j’ai fait mes premiers pas dans la programmation, c’est avec peine que j’ai dû intégrer les notions. Une simple double boucle ou l’algorithmie me nécessitait une vraie gymnastique mentale.</p>
 
-    Je suis {{identity}}:
-    <p>Ceci est la page liée à l'onglet "Qui suis-je?" de la page d'accueil</p>
+                <p>Mais à force de travail et de persévérance, acquérir les compétences et la compréhension nécessaire à être programmeur. J’ai pu progresser, être à l’aise sur bon nombre de langages et réussir mon diplôme. Mais j’en voulais toujours plus, je ne voulais plus travailler dans le domaine scientifique mais dans celui du développement. Après de multiples recherches, c'est le développement web qui m’intéressait le plus.</p> 
+
+
+                <p>C’est en avril 2019, avant même de passer les épreuves à la réussite de mon master que je décidais d’intégrer une école de développement web et passer leurs épreuves d’admission. J’avais une menu expérience sur les langages du web, et c’est à force d’apprentissage le soir après les cours que je me suis mis à niveau.</p> 
+
+                Muni de mon courage, je finissais mon master et faisais une nouvelle fois preuve d’adaptation.  J’avais beaucoup de lacunes mais grâce à un travail acharné, une expérience qui s’accumulait de plus en plus vite et du travail personnel, j’arrive au bout de l’alternance et je m’apprête ici avec vous exposer je pense avoir acquis les compétences pour être un développeur full stack. 
+                </p>
+            </section>
+        </main>
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+			<p class="mb-1">&copy; 2017–2020 Company Name</p>
+			<ul class="list-inline">
+				<li class="list-inline-item">
+					<a href="#">Privacy</a>
+				</li>
+				<li class="list-inline-item">
+					<a href="#">Terms</a>
+				</li>
+				<li class="list-inline-item">
+					<a href="#">Support</a>
+				</li>
+			</ul>
+		</footer>
 </div>
 {% endblock %}

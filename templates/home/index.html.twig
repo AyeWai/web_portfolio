@@ -11,7 +11,7 @@
 <div class="example-wrapper">
     <h1>Nous sommes sur le {{ controller_name }}! ✅</h1>
 
-    <h2>{{msg_displayed}}<h2>
+
 
     This friendly message is coming from:
     <ul>
@@ -32,10 +32,10 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="#">Home</a>
+							<a class="nav-link active" aria-current="page" href="{{path('home',)}}">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="{{path('who', {userIdentity: 'Napoléon' })}}">Qui suis-je?</a>
+							<a class="nav-link" href="{{path('who', {userIdentity: 'Chris' })}}">Qui suis-je?</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,10 +43,10 @@
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li>
-									<a class="dropdown-item" href="{{path('scaffold',)}}">Action</a>
+									<a class="dropdown-item" href="{{path('scaffold',)}}">Scaffold</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="{{path('register',)}}">Inscription</a>
+									<a class="dropdown-item" href="{{path('register',)}}">Contact</a>
 								</li>
 								<li><hr class="dropdown-divider"></li>
 								<li>
@@ -58,227 +58,49 @@
 							<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
 						</li>
 					</ul>
-					<form class="d-flex">
+					<!-- <form class="d-flex">
 						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 						<button class="btn btn-outline-success" type="submit">Search</button>
-					</form>
+					</form> -->
 				</div>
 			</div>
 		</nav>
 		<main>
-			<div class="py-5 text-center mt-5">
-				<h2>Checkout form</h2>
-				<p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
-			</div>
+			<section class="mountain">
+				<img src="{{asset('build/img/parallax/bg.jpg')}}" id="bg">
+				
+				<img src="{{asset('build/img/parallax/man.png')}}" id="man">
+				<img src="{{asset('build/img/parallax/clouds_1.png')}}" id="clouds_1">
+				<img src="{{asset('build/img/parallax/clouds_2.png')}}" id="clouds_2">
+				<img src="{{asset('build/img/parallax/mountain_left.png')}}" id="mountain_left">
+				<img src="{{asset('build/img/parallax/mountain_right.png')}}" id="mountain_right">
+				<h3 id="text">CHRIS DEV </h3>				
+			</section>
+			<div class="sec">
+				<h2>Le dev c'est génial !</h2>
+				<p>Ceci est mon premier site web vitrine, ce qui me permet d'avoir une visibilité sur le net, auprès de les futurs collaborateurs et ultimement un outil pour monter en compétence sur des technologies variées. Actuellement avec un focus particulier sur Symfony, il me permettra d'utiliser toute la puissance framework et de diverses technologies. Il est plutôt simple, mais écrit au correctement en se concentrant sur les bonnes pratiques. </p>
+				
+				<figure>
+    			<blockquote>
+        		<p>Le mieux est l'ennemi du bien.</p>
+				</blockquote>
+				<figcaption>(Voltaire, La Bégueule, 1772)</a></cite></figcaption>
+				</figure>
+				<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae sem ut lectus sagittis sagittis. Quisque in tortor sodales, aliquet orci vitae, pellentesque massa. Vestibulum vel dictum leo. Sed viverra quam sed nisl semper egestas. Sed porta magna justo, sit amet sagittis nisi condimentum vitae. Mauris porttitor libero sed euismod imperdiet. Vestibulum dictum odio velit, id lacinia sapien dignissim sit amet. In sagittis venenatis ligula a aliquam.
 
-			<div class="row g-3">
-				<div class="col-md-5 col-lg-4 order-md-last">
-					<h4 class="d-flex justify-content-between align-items-center mb-3">
-						<span class="text-muted">Your cart</span>
-						<span class="badge bg-secondary rounded-pill">3</span>
-					</h4>
-					<ul class="list-group mb-3">
-						<li class="list-group-item d-flex justify-content-between lh-sm">
-							<div>
-								<h6 class="my-0">Product name</h6>
-								<small class="text-muted">Brief description</small>
-							</div>
-							<span class="text-muted">$12</span>
-						</li>
-						<li class="list-group-item d-flex justify-content-between lh-sm">
-							<div>
-								<h6 class="my-0">Second product</h6>
-								<small class="text-muted">Brief description</small>
-							</div>
-							<span class="text-muted">$8</span>
-						</li>
-						<li class="list-group-item d-flex justify-content-between lh-sm">
-							<div>
-								<h6 class="my-0">Third item</h6>
-								<small class="text-muted">Brief description</small>
-							</div>
-							<span class="text-muted">$5</span>
-						</li>
-						<li class="list-group-item d-flex justify-content-between bg-light">
-							<div class="text-success">
-								<h6 class="my-0">Promo code</h6>
-								<small>EXAMPLECODE</small>
-							</div>
-							<span class="text-success">−$5</span>
-						</li>
-						<li class="list-group-item d-flex justify-content-between">
-							<span>Total (USD)</span>
-							<strong>$20</strong>
-						</li>
-					</ul>
+				Curabitur tincidunt, mauris at commodo efficitur, sem dolor sagittis diam, sed ultrices odio diam eget ante. Donec bibendum fringilla dignissim. Fusce tempor enim quis velit convallis, quis hendrerit nulla hendrerit. In hac habitasse platea dictumst. Proin tellus urna, accumsan nec sapien et, posuere faucibus sem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer porttitor convallis enim, quis condimentum quam pharetra at. Praesent id nibh in nisi vulputate euismod eget et lacus.
 
-					<form class="card p-2">
-						<div class="input-group">
-							<input type="text" class="form-control" placeholder="Promo code">
-							<button type="submit" class="btn btn-secondary">Redeem</button>
-						</div>
-					</form>
-				</div>
-				<div class="col-md-7 col-lg-8">
-					<h4 class="mb-3">Billing address</h4>
-					<form class="needs-validation" novalidate>
-						<div class="row g-3">
-							<div class="col-sm-6">
-								<label for="firstName" class="form-label">First name</label>
-								<input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-								<div class="invalid-feedback">
-									Valid first name is required.
-								</div>
-							</div>
+				Duis sit amet ipsum a orci fringilla consectetur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam volutpat iaculis purus at pulvinar. Duis consectetur et lorem et elementum. Nam pretium varius velit non mattis. Nullam et fringilla enim. In nec finibus sem, eu hendrerit diam. Proin a sapien in orci viverra tincidunt vel sed mauris. Morbi rutrum molestie nisi ut iaculis. Phasellus tincidunt eget purus et maximus. Etiam maximus dapibus molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin vel sagittis lectus. Nulla ut nisl massa. Integer lobortis facilisis commodo.
 
-							<div class="col-sm-6">
-								<label for="lastName" class="form-label">Last name</label>
-								<input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-								<div class="invalid-feedback">
-									Valid last name is required.
-								</div>
-							</div>
+				Curabitur nec magna mauris. Curabitur laoreet auctor est, quis posuere arcu facilisis vitae. Fusce porta ligula vel orci bibendum efficitur. Donec lacinia hendrerit rhoncus. Ut sit amet orci vitae lorem molestie tristique. Mauris condimentum est at magna vehicula scelerisque. Curabitur urna eros, iaculis eu turpis at, facilisis maximus velit.
 
-							<div class="col-12">
-								<label for="username" class="form-label">Username</label>
-								<div class="input-group">
-									<span class="input-group-text">@</span>
-									<input type="text" class="form-control" id="username" placeholder="Username" required>
-									<div class="invalid-feedback">
-										Your username is required.
-									</div>
-								</div>
-							</div>
-
-							<div class="col-12">
-								<label for="email" class="form-label">Email
-									<span class="text-muted">(Optional)</span>
-								</label>
-								<input type="email" class="form-control" id="email" placeholder="you@example.com">
-								<div class="invalid-feedback">
-									Please enter a valid email address for shipping updates.
-								</div>
-							</div>
-
-							<div class="col-12">
-								<label for="address" class="form-label">Address</label>
-								<input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-								<div class="invalid-feedback">
-									Please enter your shipping address.
-								</div>
-							</div>
-
-							<div class="col-12">
-								<label for="address2" class="form-label">Address 2
-									<span class="text-muted">(Optional)</span>
-								</label>
-								<input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-							</div>
-
-							<div class="col-md-5">
-								<label for="country" class="form-label">Country</label>
-								<select class="form-select" id="country" required>
-									<option value="">Choose...</option>
-									<option>United States</option>
-								</select>
-								<div class="invalid-feedback">
-									Please select a valid country.
-								</div>
-							</div>
-
-							<div class="col-md-4">
-								<label for="state" class="form-label">State</label>
-								<select class="form-select" id="state" required>
-									<option value="">Choose...</option>
-									<option>California</option>
-								</select>
-								<div class="invalid-feedback">
-									Please provide a valid state.
-								</div>
-							</div>
-
-							<div class="col-md-3">
-								<label for="zip" class="form-label">Zip</label>
-								<input type="text" class="form-control" id="zip" placeholder="" required>
-								<div class="invalid-feedback">
-									Zip code required.
-								</div>
-							</div>
-						</div>
-
-						<hr class="my-4">
-
-						<div class="form-check">
-							<input type="checkbox" class="form-check-input" id="same-address">
-							<label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
-						</div>
-
-						<div class="form-check">
-							<input type="checkbox" class="form-check-input" id="save-info">
-							<label class="form-check-label" for="save-info">Save this information for next time</label>
-						</div>
-
-						<hr class="my-4">
-
-						<h4 class="mb-3">Payment</h4>
-
-						<div class="my-3">
-							<div class="form-check">
-								<input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
-								<label class="form-check-label" for="credit">Credit card</label>
-							</div>
-							<div class="form-check">
-								<input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
-								<label class="form-check-label" for="debit">Debit card</label>
-							</div>
-							<div class="form-check">
-								<input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
-								<label class="form-check-label" for="paypal">PayPal</label>
-							</div>
-						</div>
-
-						<div class="row gy-3">
-							<div class="col-md-6">
-								<label for="cc-name" class="form-label">Name on card</label>
-								<input type="text" class="form-control" id="cc-name" placeholder="" required>
-								<small class="text-muted">Full name as displayed on card</small>
-								<div class="invalid-feedback">
-									Name on card is required
-								</div>
-							</div>
-
-							<div class="col-md-6">
-								<label for="cc-number" class="form-label">Credit card number</label>
-								<input type="text" class="form-control" id="cc-number" placeholder="" required>
-								<div class="invalid-feedback">
-									Credit card number is required
-								</div>
-							</div>
-
-							<div class="col-md-3">
-								<label for="cc-expiration" class="form-label">Expiration</label>
-								<input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-								<div class="invalid-feedback">
-									Expiration date required
-								</div>
-							</div>
-
-							<div class="col-md-3">
-								<label for="cc-cvv" class="form-label">CVV</label>
-								<input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-								<div class="invalid-feedback">
-									Security code required
-								</div>
-							</div>
-						</div>
-
-						<hr class="my-4">
-
-						<button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
-					</form>
-				</div>
+				Sed elementum non dolor at dictum. Etiam sit amet leo iaculis, cursus erat eget, gravida lacus. Cras id gravida sem. Quisque luctus laoreet neque, ac bibendum ligula sodales non. Integer sem leo, rutrum ut lectus id, tempus convallis lectus. Ut sed ultricies nisl, et laoreet velit. Pellentesque finibus neque non neque pharetra pellentesque sit amet a purus. Morbi ut ultrices ipsum, eget congue nulla. Cras in finibus risus. Ut vel mattis leo. Integer in vestibulum ipsum, sed pulvinar odio. Donec commodo est sed urna blandit, nec euismod ante rhoncus. Ut congue dictum aliquam.</p>
 			</div>
 		</main>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+
 
 		<footer class="my-5 pt-5 text-muted text-center text-small">
 			<p class="mb-1">&copy; 2017–2020 Company Name</p>
@@ -295,5 +117,43 @@
 			</ul>
 		</footer>
 	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+	<script>
+		gsap.to("#bg", {
+			scrollTrigger : {
+				scrub : 1
+			},
+			scale : 1.5
+		})
+
+		gsap.to("#man", {
+			scrollTrigger : {
+				scrub : 1
+			},
+			scale : 0.5
+		})
+
+		gsap.to("#mountain_left", {
+			scrollTrigger : {
+				scrub : 1
+			},
+			x: -500,
+		})
+
+		gsap.to("#mountain_right", {
+			scrollTrigger : {
+				scrub : 1
+			},
+			x: 500,
+		})
+
+		/*gsap.timeline({
+			scrollTrigger: {
+				trigger: "";
+			}
+		})*/
+	</script>
 
 {% endblock %}

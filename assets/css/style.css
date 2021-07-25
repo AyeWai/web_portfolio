@@ -8,6 +8,11 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap');
+
+
+
+
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
@@ -1639,3 +1644,4 @@ section {
   font-size: 13px;
   color: #364146;
 }
+

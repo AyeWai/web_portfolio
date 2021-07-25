@@ -14,11 +14,9 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
-        $messageDisplayed = 'Bonsoir mon bon maître :3';
 
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-            'msg_displayed' => $messageDisplayed,
         ]);
     }
 
@@ -27,7 +25,7 @@ class HomeController extends AbstractController
      */
     public function who(string $userIdentity): Response
     {
-        $messageDisplayed = 'Bonsoir mon bon maître :3';
+        $messageDisplayed = 'Salut à toi cher visiteur !';
 
         return $this->render('home/who.html.twig', [
             'controller_name' => 'WhoController',
