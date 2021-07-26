@@ -1699,3 +1699,21 @@ section {
   font-size: 1.2em;
   color: #20496a;
 }
+
+/*.profil img{
+  width: 13%;
+  position: absolute; 
+  top: 30%; left: 50%; 
+  transform: translate(-50%, -50%);
+  border: #111;
+  background-color: #111;
+  margin-left: auto;
+  margin-right: auto;
+}*/
+
+.profil img{
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
