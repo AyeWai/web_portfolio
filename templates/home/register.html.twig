@@ -7,7 +7,7 @@
 <div class="container">
 		<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#">Navbar</a>
+				<a class="navbar-brand" href="#">Chris Dev</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -21,7 +21,7 @@
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								Dropdown
+								More
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li>
@@ -36,9 +36,6 @@
 								</li>
 							</ul>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-						</li>
 					</ul>
 					<form class="d-flex">
 						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -49,13 +46,13 @@
 		</nav>
 		<main>
 			<div class="py-5 text-center mt-5">
-				<h2>Inscription</h2>
-				<p class="lead">L'inscription en tant qu'utilisateur est nécessaire pour pouvoir écrire dans le livre d'or et bénéficier des bonus liés aux dons.</p>
+				<h2>Contact</h2>
+				<p class="lead">Cette page me permet de vous recontacter ultérieurement et d'écrire le nom des généreux donateurs dans le livre d'or.</p>
 			</div>
 
 			<div class="row g-3">
-				<div class="col-md-9 col-lg-12">
-					<h4 class="mb-3">Ajouter un compte</h4>
+				<div class="col-md-8 col-lg-7">
+					<!-- <h4 class="mb-3">Ajouter un compte</h4> -->
 					<form class="needs-validation" >
 						<div class="row g-3 mb-5">
 							<div class="col-sm-6">
@@ -74,8 +71,8 @@
 								</div>
 							</div>
 
-							<div class="col-12">
-								<label for="username" class="form-label">Pseudonyme</label>
+							<!-- <div class="col-12">
+								<label for="username" class="form-label">Mail</label>
 								<div class="input-group">
 									<span class="input-group-text">@</span>
 									<input type="text" class="form-control" id="username" placeholder="Pseudonyme" required>
@@ -83,7 +80,7 @@
 										Un pseudonyme est requis.
 									</div>
 								</div>
-							</div>
+							</div> -->
 
 							<div class="col-12">
 								<label for="username" class="form-label">Mot de passe</label>
@@ -141,10 +138,17 @@
 
 						<hr class="my-4">
 				</div>
+				<div class="col-md-4 col-lg-5">
+					<div id="smart-button-container">
+						<div style="text-align: center;">
+							<div id="paypal-button-container"></div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="register-info">
 				<p>* Informations obligatoires</p>
-				<p>En tant que responsable de traitement, Webedia traite vos données personnelles sur le site jeuxvideo.com pour gérer votre abonnement à notre newsletter jeuxvideo.com. Vous disposez d’un droit d’accès, de rectification, d’effacement ou de portabilité de vos données personnelles. Vous pouvez vous opposer ou limiter certains traitements. Vous disposez également du droit de définir des directives relatives au sort de vos données après votre décès. Enfin, vous avez le droit d’introduire une réclamation auprès de la Commission nationale de l’informatique et des libertés. Pour en savoir plus sur la gestion de vos données et de vos droits par Webedia sur le site jeuxvideo.com, consultez notre Politique de protection des données.</p>
+				<p>En tant que responsable de traitement, Chris Dev traite vos données personnelles pour gérer vos mises en relation avec le développeur responsable du site web. Vous disposez d’un droit d’accès, de rectification, d’effacement de vos données personnelles. Vous pouvez vous opposer ou limiter certains traitements. Vous disposez également du droit de définir des directives relatives au sort de vos données après votre décès. Enfin, vous avez le droit d’introduire une réclamation auprès de la Commission nationale de l’informatique et des libertés. Pour en savoir plus sur la gestion de vos données et de vos droits par Chris Dev, consultez notre Politique de protection des données.</p>
 			</div>
 
 
@@ -171,5 +175,41 @@
       return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
     }
 </script>
+<div id="smart-button-container">
+      <div style="text-align: center;">
+        <div id="paypal-button-container"></div>
+      </div>
+    </div>
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=EUR" data-sdk-integration-source="button-factory"></script>
+  <script>
+    function initPayPalButton() {
+      paypal.Buttons({
+        style: {
+          shape: 'pill',
+          color: 'white',
+          layout: 'vertical',
+          label: 'donate',
+          
+        },
+
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{"amount":{"currency_code":"EUR","value":10,"breakdown":{"item_total":{"currency_code":"EUR","value":10}}},"items":[{"name":"item name","unit_amount":{"currency_code":"EUR","value":10},"quantity":"1","category":"DONATION"}]}]
+          });
+        },
+
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            alert('Transaction completed by ' + details.payer.name.given_name + '!');
+          });
+        },
+
+        onError: function(err) {
+          console.log(err);
+        }
+      }).render('#paypal-button-container');
+    }
+    initPayPalButton();
+  </script>
 
 {% endblock %}
