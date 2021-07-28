@@ -133,12 +133,13 @@
 
 
 						<!-- <button class="w-100 btn btn-primary btn-lg" type="submit" href="{{path('register_submit',)}}">Confirmer</button> -->
-						<button class="w-100 btn btn-primary btn-lg" type="submit" href="{{path('register_submit',)}}">Confirmer</button> 
+						<button class="w-50 btn btn-primary btn-lg mx-auto d-block" type="submit" href="{{path('register_submit',)}}">Confirmer</button> 
 					</form>
 
 						<hr class="my-4">
 				</div>
 				<div class="col-md-4 col-lg-5">
+				<h3 class="text-center">1 euro, le prix d'un café pour rester éveillé !</h3>
 					<div id="smart-button-container">
 						<div style="text-align: center;">
 							<div id="paypal-button-container"></div>
@@ -194,7 +195,7 @@
 
         createOrder: function(data, actions) {
           return actions.order.create({
-            purchase_units: [{"amount":{"currency_code":"EUR","value":10,"breakdown":{"item_total":{"currency_code":"EUR","value":10}}},"items":[{"name":"item name","unit_amount":{"currency_code":"EUR","value":10},"quantity":"1","category":"DONATION"}]}]
+            purchase_units: [{"amount":{"currency_code":"EUR","value":1,"breakdown":{"item_total":{"currency_code":"EUR","value":1}}},"items":[{"name":"item name","unit_amount":{"currency_code":"EUR","value":1},"quantity":"1","category":"DONATION"}]}]
           });
         },
 
@@ -213,3 +214,4 @@
   </script>
 
 {% endblock %}
+
