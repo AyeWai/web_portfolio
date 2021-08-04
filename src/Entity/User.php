@@ -29,18 +29,6 @@ class User
     private $lastname;
 
     /**
-     * @ORM\Column(type="string", length=32)
-     * @Assert\Length(min=5)
-     */
-    private $pseudo;
-
-    /**
-     * @ORM\Column(type="string", length=10)
-     * @Assert\Length(max=8)
-     */
-    private $password;
-
-    /**
      * @ORM\Column(type="string", length=64)
      */
     private $mail;
@@ -75,30 +63,6 @@ class User
     public function setLastname(?string $lastname): self
     {
         $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    public function getPseudo(): ?string
-    {
-        return $this->pseudo;
-    }
-
-    public function setPseudo(string $pseudo): self
-    {
-        $this->pseudo = $pseudo;
-
-        return $this;
-    }
-
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
 
         return $this;
     }
