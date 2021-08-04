@@ -18,11 +18,11 @@ class UserController extends AbstractController
     public function index(): Response
     {
         return $this->render('user/index.html.twig', [
-            'controller_name' => 'User2Controller',
+            'controller_name' => 'UserController',
         ]);
     }
     /**
-     * @Route("/user/{firstname)}/{lastname}/{mail}/{status}", name="create_user")
+     * @Route("/user/{firstname}/{lastname}/{mail}/{status}", name="create_user")
      */
     public function createUser(string $firstname, string $lastname, string $mail, string $status, ValidatorInterface $validator) : Response
     {   
@@ -33,8 +33,8 @@ class UserController extends AbstractController
         $user = new User();
         $user->setFirstname($firstname);
         $user->setLastname($lastname);
-        $user->setLastname($mail);
-        $user->setLastname($status);
+        $user->setMail($mail);
+        $user->setStatus($status);
         
 
 
@@ -55,6 +55,15 @@ class UserController extends AbstractController
         return new Response('Saved new product with id '.$user->getId());
         }
     }
+
+    /**
+     * @Route("/user-resgistered", name="create_user2")
+     */
+
+     public function createUser2(Request $request) : Response
+     {
+        $post = $request->request->get("firstName");
+     }
 
     /*public function contact(Request $request): Response
     {
