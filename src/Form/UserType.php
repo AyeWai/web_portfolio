@@ -32,7 +32,7 @@ class UserType extends AbstractType
                 'for' => 'LasttName',
             ],
             'label' => 'Nom'])
-        ->add('pseudo', TextType::class,[
+        /*->add('pseudo', TextType::class,[
             'label_attr' =>[
                 'class' => 'form-label',
                 'for' => 'Pseudo',
@@ -43,7 +43,7 @@ class UserType extends AbstractType
                 'class' => 'form-label',
                 'for' => 'Password',
             ],
-            'label' => 'Password'])
+            'label' => 'Password'])*/
         ->add('mail', EmailType::class,[
             'label_attr' =>[
                 'class' => 'form-label',

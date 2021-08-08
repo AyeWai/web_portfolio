@@ -23,7 +23,7 @@ class UserTypeController extends AbstractController
     {   
         // you can fetch the EntityManager via $this->getDoctrine()
         // or you can add an argument to the action: createProduct(EntityManagerInterface $entityManager)
-        //public function createUser(string $firstname, string $lastname, string $pseudo, string $password, string $mail, string $status,  ValidatorInterface $validator) : Response
+        //public function createUser(string $firstname, string $lastname,  string $password, string $mail, string $status,  ValidatorInterface $validator) : Response
 
         $entityManager = $this->getDoctrine()->getManager();
 
@@ -31,7 +31,7 @@ class UserTypeController extends AbstractController
 
         $form = $this->createForm(UserType::class, $user);
 
-        return $this->render('user/new.html.twig', [
+        return $this->render('user_type/contact.html.twig', [
             'form' => $form->createView(),
         ]);
 

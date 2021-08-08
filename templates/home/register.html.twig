@@ -53,11 +53,11 @@
 			<div class="row g-3">
 				<div class="col-md-8 col-lg-7">
 					<!-- <h4 class="mb-3">Ajouter un compte</h4> -->
-					<form class="needs-validation" method ="POST" action="{{path('create_user')}}">
+					<form class="needs-validation" method ="POST" action="{{path('create_user2')}}">
 						<div class="row g-3 mb-5">
 							<div class="col-sm-6">
 								<label for="firstName" class="form-label">Prénom</label>
-								<input type="text" class="form-control" id="firstName" placeholder="" value="">
+								<input type="text" class="form-control" id="firstName" name="firstName" placeholder="" value="">
 								<div class="invalid-feedback">
 									Un prénom valide est requis.
 								</div>
@@ -65,7 +65,7 @@
 
 							<div class="col-sm-6">
 								<label for="lastName" class="form-label">Nom</label>
-								<input type="text" class="form-control" id="lastName" placeholder="" value="">
+								<input type="text" class="form-control" id="lastName" name="lastName" placeholder="" value="">
 								<div class="invalid-feedback">
 									Un nom valide est requis.
 								</div>
@@ -96,7 +96,7 @@
 								<label for="email" class="form-label">Email
 									<!-- <span class="text-muted">(Optional)</span> -->
 								</label>
-								<input type="email" class="form-control" id="email" placeholder="Adresse mail" oninput="form.email_confirm.pattern = escapeRegExp(this.value)" required>
+								<input type="email" class="form-control" id="email" name="email" placeholder="Adresse mail" oninput="form.email_confirm.pattern = escapeRegExp(this.value)" required>
 								<div class="invalid-feedback">
 									Entrez une adresse e-mail valide pour mail confirmation.
 								</div>
@@ -113,7 +113,7 @@
 
 							<div class="col-md-5">
 								<label for="country" class="form-label">Statut</label>
-								<select class="form-select" id="country" required>
+								<select class="form-select" id="status" name="status" required>
 									<option>Recruteur</option>
 									<option>Particulier</option>
 									<option>Collaboration</option>
@@ -181,7 +181,7 @@
         <div id="paypal-button-container"></div>
       </div>
     </div>
-  <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=EUR" data-sdk-integration-source="button-factory"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=AajsO0JvfX98f1MpAfJe2fQH8Y1HqmnwzvQ4GvBuSR8LqDMu1RHHPGQcFrwECPl014BK_g-7Ob3W0XFI&enable-funding=venmo&currency=EUR" data-sdk-integration-source="button-factory"></script>
   <script>
     function initPayPalButton() {
       paypal.Buttons({

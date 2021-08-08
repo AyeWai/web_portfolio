@@ -24,11 +24,13 @@ class UserController extends AbstractController
     /**
      * @Route("/user/{firstname}/{lastname}/{mail}/{status}", name="create_user")
      */
+
     public function createUser(string $firstname, string $lastname, string $mail, string $status, ValidatorInterface $validator) : Response
     {   
         // you can fetch the EntityManager via $this->getDoctrine()
         // or you can add an argument to the action: createProduct(EntityManagerInterface $entityManager)
         $entityManager = $this->getDoctrine()->getManager();
+
 
         $user = new User();
         $user->setFirstname($firstname);
@@ -60,12 +62,41 @@ class UserController extends AbstractController
      * @Route("/user-resgistered", name="create_user2")
      */
 
-     public function createUser2(Request $request) : Response
+     public function createUser2(Request $request, ValidatorInterface $validator) : Response
      {
-        $post = $request->request->get("firstName");
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $firstname = $request->request->get("firstName");
+        $lastname = $request->request->get("lastName");
+        $mail = $request->request->get("email");
+        $status = $request->request->get("status");
+
+        $user = new User();
+        $user->setFirstname($firstname);
+        $user->setLastname($lastname);
+        $user->setMail($mail);
+        $user->setStatus($status);
+
+        $errors = $validator->validate($user);
+        if (count($errors) > 0) {
+            //return new Response((string) $errors, 400);
+            return $this->render('home/errors.html.twig', ['errors' => $errors,]);
+        }
+        elseif(count($errors) == 0){
+
+
+            // tell Doctrine you want to (eventually) save the Product (no queries yet)
+            $entityManager->persist($user);
+
+            // actually executes the queries (i.e. the INSERT query)
+            $entityManager->flush();
+        
+        return $this->render('user/new.html.twig');
+        //return new Response('Saved new contact user with id '.$user->getId());
+        }
      }
 
-    /*public function contact(Request $request): Response
+    public function contact(Request $request): Response
     {
         //$defaultData = ['message' => 'Type your message here'];
         //$form = $this->createFormBuilder($defaultData)
@@ -87,7 +118,7 @@ class UserController extends AbstractController
         }
 
         // ... render the form
-    }*/
+    }
 
 
     
