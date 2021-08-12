@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\User;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer;
 use Symfony\Component\Mailer\MailerInterface;
@@ -43,17 +44,28 @@ class ContactService extends AbstractController{
     }
 
     public function sendEmail(MailerInterface $mailer, Request $request ): void
-    {
-        $email = (new Email())
+    {   
+        $firstname = $request->request->get("firstName");
+        $lastname = $request->request->get("lastName");
+        $mail = $request->request->get("email");
+        $status = $request->request->get("status");
+
+        $email = (new TemplatedEmail())
             ->from('cs.simon@live.fr')
-            ->to('cs.simon@live.fr')
+            ->to($mail)
             //->cc('cc@example.com')
             //->bcc('bcc@example.com')
             //->replyTo('fabien@example.com')
             //->priority(Email::PRIORITY_HIGH)
-            ->subject('Time for Symfony Mailer!')
+            ->subject('Confirmation de prise de contact sur chris-dev.fr')
             ->text('Sending emails is fun again!')
-            ->html('<p>See Twig integration for better HTML integration!</p>');
+            ->htmlTemplate('mails/reply.html.twig')
+
+            ->context([
+                'firstname' => $firstname,
+                'lastname' => $lastname,
+                'status' => $status,
+            ]);
 
         $mailer->send($email);
 
