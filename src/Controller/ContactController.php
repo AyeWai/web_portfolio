@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
+use App\Entity\Contact;
 use App\Service\ContactService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -12,37 +12,37 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-class UserController extends AbstractController
+class ContactController extends AbstractController
 {
     /**
-     * @Route("/user", name="user")
+     * @Route("/contact", name="contact")
      */
     public function index(): Response
     {
-        return $this->render('user/index.html.twig', [
-            'controller_name' => 'UserController',
+        return $this->render('contact/index.html.twig', [
+            'controller_name' => 'ContactController',
         ]);
     }
     /**
-     * @Route("/user/{firstname}/{lastname}/{mail}/{status}", name="create_user")
+     * @Route("/contact/{firstname}/{lastname}/{mail}/{status}", name="create_contact")
      */
 
-    public function createUser(string $firstname, string $lastname, string $mail, string $status, ValidatorInterface $validator) : Response
+    public function createContact(string $firstname, string $lastname, string $mail, string $status, ValidatorInterface $validator) : Response
     {   
         // you can fetch the EntityManager via $this->getDoctrine()
         // or you can add an argument to the action: createProduct(EntityManagerInterface $entityManager)
         $entityManager = $this->getDoctrine()->getManager();
 
 
-        $user = new User();
-        $user->setFirstname($firstname);
-        $user->setLastname($lastname);
-        $user->setMail($mail);
-        $user->setStatus($status);
+        $contact = new Contact();
+        $contact->setFirstname($firstname);
+        $contact->setLastname($lastname);
+        $contact->setMail($mail);
+        $contact->setStatus($status);
         
 
 
-        $errors = $validator->validate($user);
+        $errors = $validator->validate($contact);
         if (count($errors) > 0) {
             //return new Response((string) $errors, 400);
             return $this->render('home/errors.html.twig', ['errors' => $errors,]);
@@ -51,26 +51,26 @@ class UserController extends AbstractController
 
 
             // tell Doctrine you want to (eventually) save the Product (no queries yet)
-            $entityManager->persist($user);
+            $entityManager->persist($contact);
 
             // actually executes the queries (i.e. the INSERT query)
             $entityManager->flush();
 
-        return new Response('Saved new product with id '.$user->getId());
+        return new Response('Saved new product with id '.$contact->getId());
         }
     }
 
     /**
-     * @Route("/user-resgistered", name="create_user2")
+     * @Route("/contact-resgistered", name="create_contact2")
      */
 
-     public function createUser2(Request $request, ValidatorInterface $validator, ContactService $contactService, MailerInterface $mailer) : Response
+     public function createcontact2(Request $request, ValidatorInterface $validator, ContactService $contactService, MailerInterface $mailer) : Response
      {
         $contactService->persistContact($request, $validator);
         $contactService->sendEmail($mailer, $request);
         
-        return $this->render('user/new.html.twig');
-        //return new Response('Saved new contact user with id '.$user->getId());
+        return $this->render('contact/new.html.twig');
+        //return new Response('Saved new contact contact with id '.$contact->getId());
         
      }
 

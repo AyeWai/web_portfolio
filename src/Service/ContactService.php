@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Entity\User;
+use App\Entity\Contact;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer;
@@ -21,13 +21,13 @@ class ContactService extends AbstractController{
         $mail = $request->request->get("email");
         $status = $request->request->get("status");
 
-        $user = new User();
-        $user->setFirstname($firstname);
-        $user->setLastname($lastname);
-        $user->setMail($mail);
-        $user->setStatus($status);
+        $contact = new Contact();
+        $contact->setFirstname($firstname);
+        $contact->setLastname($lastname);
+        $contact->setMail($mail);
+        $contact->setStatus($status);
 
-        $errors = $validator->validate($user);
+        $errors = $validator->validate($contact);
         if (count($errors) > 0) {
             //return new Response((string) $errors, 400);
             return $this->render('home/errors.html.twig', ['errors' => $errors,]);
@@ -36,7 +36,7 @@ class ContactService extends AbstractController{
 
 
             // tell Doctrine you want to (eventually) save the Product (no queries yet)
-            $entityManager->persist($user);
+            $entityManager->persist($contact);
 
             // actually executes the queries (i.e. the INSERT query)
             $entityManager->flush();

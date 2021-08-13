@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
-use App\Form\UserType;
+use App\Entity\Contact;
+use App\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,27 +11,27 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 
-class UserTypeController extends AbstractController
+class ContactTypeController extends AbstractController
 {
     
     /**
      * @Route("/register/submit", name="register_submit",  methods={"GET"})
      * @param $request
      */
-    public function createUser(Request $request) : Response
+    public function createFormContact(Request $request) : Response
 
     {   
         // you can fetch the EntityManager via $this->getDoctrine()
         // or you can add an argument to the action: createProduct(EntityManagerInterface $entityManager)
-        //public function createUser(string $firstname, string $lastname,  string $password, string $mail, string $status,  ValidatorInterface $validator) : Response
+        //public function createcontact(string $firstname, string $lastname,  string $password, string $mail, string $status,  ValidatorInterface $validator) : Response
 
         $entityManager = $this->getDoctrine()->getManager();
 
-        $user = new User();
+        $contact = new Contact();
 
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(contactType::class, $contact);
 
-        return $this->render('user_type/contact.html.twig', [
+        return $this->render('contact_type/contact.html.twig', [
             'form' => $form->createView(),
         ]);
 
