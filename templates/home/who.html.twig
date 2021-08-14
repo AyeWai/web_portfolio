@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Qui suis-je?{% endblock %}
+{% block title %}Chris-dev | Parcours d'un développeur Full Stack{% endblock %}
 
 {% block body %}
 
 <div class="container">
 		<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#">Navbar</a>
+				<a class="navbar-brand">Chris-Dev</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -49,7 +49,7 @@
 		</nav>
         <main>
             <section class="profil">
-                <h2 class="py-5 text-center mt-5">{{msg_displayed}}</h2>
+                <h1 class="py-5 text-center mt-5">{{msg_displayed}}</h1>
                 <img src="{{asset('build/img/8bitpix.png')}}" id="profil_pic">
 
                 <p class="py-5 text-center mt-5">Je me présente, {{identity}}, enchanté.</p>

@@ -25,7 +25,7 @@ class HomeController extends AbstractController
      */
     public function who(string $userIdentity): Response
     {
-        $messageDisplayed = 'Salut à toi cher visiteur !';
+        $messageDisplayed = 'Mon parcours';
 
         return $this->render('home/who.html.twig', [
             'controller_name' => 'WhoController',
