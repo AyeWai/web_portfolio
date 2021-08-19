@@ -17,7 +17,7 @@
 							<a class="nav-link active" aria-current="page" href="{{path('home',)}}">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="{{path('who', {userIdentity: 'Chris' })}}">Qui suis-je?</a>
+							<a class="nav-link" href="{{path('profil', {userIdentity: 'Chris' })}}">Qui suis-je?</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -28,7 +28,7 @@
 									<a class="dropdown-item" href="{{path('scaffold',)}}">Action</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="{{path('register',)}}">Inscription</a>
+									<a class="dropdown-item" href="{{path('contact',)}}">Inscription</a>
 								</li>
 								<li><hr class="dropdown-divider"></li>
 								<li>
@@ -50,7 +50,7 @@
         <main>
             <section class="profil">
                 <h1 class="py-5 text-center mt-5">{{msg_displayed}}</h1>
-                <img src="{{asset('build/img/8bitpix.png')}}" id="profil_pic">
+                <img src="{{asset('build/img/8bitpix.png')}}" id="profil_pic" alt="8bit pixelart developer profil">
 
                 <p class="py-5 text-center mt-5">Je me présente, {{identity}}, enchanté.</p>
                 <p> Il y a maintenant deux années j’ai réussi avec brio un master dans le domaine scientifique en bioinformatique. Avant ces deux années, je faisais de la biologie pure. Je n’ai jamais eu des facilités dans la logique mathématique, et les sujets dont je qualifierai l’expression d’abstraite. 

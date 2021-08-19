@@ -21,14 +21,14 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/who/{userIdentity}", name="who", methods={"GET"})
+     * @Route("/profil/{userIdentity}", name="profil", methods={"GET"})
      */
-    public function who(string $userIdentity): Response
+    public function profil(string $userIdentity): Response
     {
         $messageDisplayed = 'Mon parcours';
 
-        return $this->render('home/who.html.twig', [
-            'controller_name' => 'WhoController',
+        return $this->render('home/profil.html.twig', [
+            'controller_name' => 'ProfilController',
             'identity' => $userIdentity,
             'msg_displayed' => $messageDisplayed,
         ]);
@@ -45,10 +45,10 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/register", name="register", methods={"GET"})
+     * @Route("/contact", name="contact", methods={"GET"})
      */
     public function register(): Response
     {
-        return $this->render('home/register.html.twig');
+        return $this->render('home/contact.html.twig');
     }
 }

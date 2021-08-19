@@ -14,15 +14,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class ContactController extends AbstractController
 {
-    /**
-     * @Route("/contact", name="contact")
-     */
-    public function index(): Response
-    {
-        return $this->render('contact/index.html.twig', [
-            'controller_name' => 'ContactController',
-        ]);
-    }
+
     /**
      * @Route("/contact/{firstname}/{lastname}/{mail}/{status}", name="create_contact")
      */
@@ -56,7 +48,8 @@ class ContactController extends AbstractController
             // actually executes the queries (i.e. the INSERT query)
             $entityManager->flush();
 
-        return new Response('Saved new product with id '.$contact->getId());
+        //return new Response('Saved new product with id '.$contact->getId());
+        return $this->render('home/errors.html.twig', ['errors' => $errors,]);
         }
     }
 
