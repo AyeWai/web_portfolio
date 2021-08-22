@@ -6,9 +6,13 @@
     {{ encore_entry_link_tags('login_style') }}
 {% endblock %}
 
+{% block javascripts %}
+            {{ encore_entry_script_tags('login') }}
+        {% endblock %}
 {% block body %}
-<form method="post">
-    {% if error %}
+
+<!--<form method="post">
+     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
@@ -16,7 +20,7 @@
         <div class="mb-3">
             You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
-    {% endif %}
+    {% endif %}*/
 
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label for="inputEmail">Email</label>
@@ -42,7 +46,7 @@
     <button class="btn btn-lg btn-primary" type="submit">
         Sign in
     </button>
-</form>
+-->
 
 <div class="container right-panel-active">
 	<!-- Sign Up -->
@@ -59,11 +63,23 @@
 	<!-- Sign In -->
 	<div class="container__form container--signin">
 		<form action="#" class="form" id="form2">
+		{% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
 			<h2 class="form__title">Sign In</h2>
-			<input type="email" placeholder="Email" class="input" />
-			<input type="password" placeholder="Password" class="input" />
+			<input type="email" placeholder="Email" class="input" value="{{ last_username }}" name="email" required autofocus/>  
+			<input type="password" placeholder="Password" class="input" name="password" id="inputPassword" autocomplete="current-password" required/>
 			<a href="#" class="link">Forgot your password?</a>
 			<button class="btn">Sign In</button>
+
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"
+    >
 		</form>
 	</div>
 
@@ -79,5 +95,6 @@
 		</div>
 	</div>
 </div>
+
 
 {% endblock %}

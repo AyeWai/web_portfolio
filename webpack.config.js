@@ -45,6 +45,7 @@ Encore
      */
     .addEntry('app', './assets/app.js')
     .addEntry('login_style', './assets/styles/login_style.scss')
+    .addEntry('login', './assets/js/login.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
