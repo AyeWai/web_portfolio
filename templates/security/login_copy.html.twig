@@ -52,11 +52,11 @@
 	<!-- Sign Up -->
 	<div class="container__form container--signup">
 		<form action="#" class="form" id="form1">
-			<h2 class="form__title">Sign Up</h2>
+			<h2 class="form__title">S'inscrire</h2>
 			<input type="text" placeholder="User" class="input" />
 			<input type="email" placeholder="Email" class="input" />
 			<input type="password" placeholder="Password" class="input" />
-			<button class="btn">Sign Up</button>
+			<button class="btn">S'inscrire</button>
 		</form>
 	</div>
 
@@ -69,17 +69,16 @@
 
     {% if app.user %}
         <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+            Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
         </div>
     {% endif %}
-			<h2 class="form__title">Sign In</h2>
+			<h2 class="form__title">Se connecter</h2>
 			<input type="email" placeholder="Email" class="input" value="{{ last_username }}" name="email" required autofocus/>  
 			<input type="password" placeholder="Password" class="input" name="password" id="inputPassword" autocomplete="current-password" required/>
-			<a href="#" class="link">Forgot your password?</a>
-			<button class="btn">Sign In</button>
+			<a href="#" class="link">Mot de passe oublié?</a>
+			<button class="btn">Se connecter</button>
 
-			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"
-    >
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 		</form>
 	</div>
 
@@ -87,10 +86,10 @@
 	<div class="container__overlay">
 		<div class="overlay">
 			<div class="overlay__panel overlay--left">
-				<button class="btn" id="signIn">Sign In</button>
+				<button class="btn" id="signIn">Se connecter</button>
 			</div>
 			<div class="overlay__panel overlay--right">
-				<button class="btn" id="signUp">Sign Up</button>
+				<button class="btn" id="signUp">S'inscrire</button>
 			</div>
 		</div>
 	</div>
