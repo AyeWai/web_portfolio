@@ -13,3 +13,5 @@ import { Tooltip, Toast, Popover} from './bootstrap';
 
 // start the Stimulus application
 import 'bootstrap';
+import 'boxicons';
+import 'boxicons/css/boxicons.min.css';
