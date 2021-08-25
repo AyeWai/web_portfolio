@@ -16,10 +16,10 @@ class ContactController extends AbstractController
 {
 
     /**
-     * @Route("/contact/{firstname}/{lastname}/{mail}/{status}", name="create_contact")
+     * @Route("/contact/{firstname}/{lastname}/{mail}/{status}", name="create_contact2")
      */
 
-    public function createContact(string $firstname, string $lastname, string $mail, string $status, ValidatorInterface $validator) : Response
+    public function createContact2(string $firstname, string $lastname, string $mail, string $status, ValidatorInterface $validator) : Response
     {   
         // you can fetch the EntityManager via $this->getDoctrine()
         // or you can add an argument to the action: createProduct(EntityManagerInterface $entityManager)
@@ -54,10 +54,10 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/contact-resgistered", name="create_contact2")
+     * @Route("/contact-resgistered", name="create_contact")
      */
 
-     public function createcontact2(Request $request, ValidatorInterface $validator, ContactService $contactService, MailerInterface $mailer) : Response
+     public function createContact(Request $request, ValidatorInterface $validator, ContactService $contactService, MailerInterface $mailer) : Response
      {
         $contactService->persistContact($request, $validator);
         $contactService->sendEmail($mailer, $request);

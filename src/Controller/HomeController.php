@@ -6,17 +6,26 @@ use Symfony\Component\Asset\Package;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class HomeController extends AbstractController
 {
+
+    //public $logout;
+
     /**
      * @Route("/", name="home")
      */
     public function index(): Response
-    {
+    {   
+        $logout = '';
+
+        if (!$this->getUser()->getUsername()) {
+            $logout = 'hidden';
+       }
 
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'logout' => $logout,
         ]);
     }
 
@@ -47,8 +56,10 @@ class HomeController extends AbstractController
     /**
      * @Route("/contact", name="contact", methods={"GET"})
      */
-    public function register(): Response
+    public function contactregister(): Response
     {
         return $this->render('home/contact.html.twig');
     }
+
+
 }
