@@ -29,7 +29,7 @@ class RegistrationService extends AbstractController{
                 $password
             )
         );
-        $user->setIsVerified($agreeterms);
+        //$user->setIsVerified($agreeterms);
 
         $errors = $validator->validate($user);
         if (count($errors) > 0) {

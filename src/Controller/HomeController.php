@@ -11,8 +11,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class HomeController extends AbstractController
 {
 
-    //public $logout;
-
     /**
      * @Route("/", name="home")
      */
@@ -20,7 +18,7 @@ class HomeController extends AbstractController
     {   
         $logout = '';
 
-        if (!$this->getUser()->getUsername()) {
+        if (!$this->getUser()) {
             $logout = 'hidden';
        }
 
@@ -35,12 +33,18 @@ class HomeController extends AbstractController
     public function profil(string $userIdentity): Response
     {
         $messageDisplayed = 'Mon parcours';
+        $logout = '';
+
+        if (!$this->getUser()) {
+            $logout = 'hidden';
+       }
 
         return $this->render('home/profil.html.twig', [
-            'controller_name' => 'ProfilController',
             'identity' => $userIdentity,
             'msg_displayed' => $messageDisplayed,
+            'logout' => $logout,
         ]);
+
     }
 
     /**
@@ -58,7 +62,15 @@ class HomeController extends AbstractController
      */
     public function contactregister(): Response
     {
-        return $this->render('home/contact.html.twig');
+        $logout = '';
+
+        if (!$this->getUser()) {
+            $logout = 'hidden';
+       }
+
+        return $this->render('home/contact.html.twig', [
+            'logout' => $logout,
+        ]);
     }
 
 

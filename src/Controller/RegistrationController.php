@@ -41,7 +41,7 @@ class RegistrationController extends AbstractController
 
         $mail = $request->request->get("email");
         $password = $request->request->get("password");
-        $agreeterms = $request->request->get("agreeTerms");
+        //$agreeterms = $request->request->get("agreeTerms");
 
         $user = new User();
         $user->setEmail($mail);
@@ -51,7 +51,7 @@ class RegistrationController extends AbstractController
                 $password
             )
         );
-        $user->setIsVerified($agreeterms);
+        //$user->setIsVerified($agreeterms);
 
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($user);
@@ -67,15 +67,14 @@ class RegistrationController extends AbstractController
         );
             // do anything else you need here, like send an email
 
-        /*return $guardHandler->authenticateUserAndHandleSuccess(
+        return $guardHandler->authenticateUserAndHandleSuccess(
             $user,
             $request,
             $authenticator,
             'main' // firewall name in security.yaml
-        );*/
+        );
 
         }
-        //return $this->render('contact/new.html.twig');
         return $this->render('registration/register.html.twig');
     }
 

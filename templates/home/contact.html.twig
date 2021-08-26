@@ -7,7 +7,8 @@
 <div class="container">
 		<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
-				<a class="navbar-brand">Chris-Dev</a>
+				<a class="brick users" href="{{path('app_login',)}}"><box-icon name='user-circle' size='lg' type='solid'></box-icon></a>
+				<a class="brick users" href="{{path('app_logout',)}}" {{logout}}>Déconnexion</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -25,22 +26,18 @@
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li>
-									<a class="dropdown-item" href="{{path('scaffold',)}}">Scaffold</a>
+									<a class="dropdown-item" href="{{path('scaffold',)}}">Exemple Bootstrap</a>
 								</li>
 								<li>
 									<a class="dropdown-item" href="{{path('contact',)}}">Contact</a>
 								</li>
-								<li><hr class="dropdown-divider"></li>
-								<li>
-									<a class="dropdown-item"  href="{{path('register_submit',)}}">Formulaire Contact Symfony</a>
-								</li>
 							</ul>
 						</li>
 					</ul>
-					<form class="d-flex">
+					<!-- <form class="d-flex">
 						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
 						<button class="btn btn-outline-success" type="submit">Search</button>
-					</form>
+					</form>-->
 				</div>
 			</div>
 		</nav>
