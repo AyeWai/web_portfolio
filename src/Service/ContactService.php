@@ -51,7 +51,7 @@ class ContactService extends AbstractController{
         $status = $request->request->get("status");
 
         $email = (new TemplatedEmail())
-            ->from('cs.simon@live.fr')
+            ->from('chris-dev@hotmail.com')
             ->to($mail)
             //->cc('cc@example.com')
             //->bcc('bcc@example.com')
