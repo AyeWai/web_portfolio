@@ -10,6 +10,9 @@
         "sass": "^1.32.12",
         "sass-loader": "11.0.0",
         "stimulus": "^2.0.0",
+        "vue": "^2.5",
+        "vue-loader": "^15.9.5",
+        "vue-template-compiler": "^2.6.14",
         "webpack-notifier": "^1.6.0"
     },
     "license": "UNLICENSED",
@@ -29,6 +32,8 @@
         "copy-webpack-plugin": "^9.0.0",
         "file-loader": "^6.2.0",
         "jquery": "^3.6.0",
-        "owl.carousel": "^2.3.4"
+        "owl.carousel": "^2.3.4",
+        "vue-router": "^3.5.2",
+        "vuetify": "^2.5.9"
     }
 }
