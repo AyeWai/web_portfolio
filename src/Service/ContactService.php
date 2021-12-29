@@ -16,6 +16,7 @@ class ContactService extends AbstractController{
     public function persistContact(Request $request, ValidatorInterface $validator){
         $entityManager = $this->getDoctrine()->getManager();
 
+        dump($request);
         $firstname = $request->request->get("firstName");
         $lastname = $request->request->get("lastName");
         $mail = $request->request->get("email");
@@ -26,6 +27,8 @@ class ContactService extends AbstractController{
         $contact->setLastname($lastname);
         $contact->setMail($mail);
         $contact->setStatus($status);
+
+        dump($contact);
 
         $errors = $validator->validate($contact);
         if (count($errors) > 0) {
@@ -51,7 +54,7 @@ class ContactService extends AbstractController{
         $status = $request->request->get("status");
 
         $email = (new TemplatedEmail())
-            ->from('chris-dev@hotmail.com')
+            ->from('cs.simon@live.fr.com')
             ->to($mail)
             //->cc('cc@example.com')
             //->bcc('bcc@example.com')
