@@ -25,7 +25,7 @@ class ContactController extends AbstractController
         // or you can add an argument to the action: createProduct(EntityManagerInterface $entityManager)
         $entityManager = $this->getDoctrine()->getManager();
 
-
+        //Attribuer valeurs aux attributs objets Contact
         $contact = new Contact();
         $contact->setFirstname($firstname);
         $contact->setLastname($lastname);
